@@ -11,7 +11,7 @@ made with React in 2019
 <img src="https://user-images.githubusercontent.com/51507260/71533867-8ee05880-293e-11ea-8c39-61086ccb988d.png" alt="todolist">
 
 ## Link
-https://anxiubin.github.io/to-do-list/
+https://anxiubin.github.io/to-do-list
 
 ## Languages & Library
 - JSX
