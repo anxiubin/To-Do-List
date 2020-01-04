@@ -17,6 +17,8 @@ const ToDoTemplateBlock = styled.div`
     flex-direction: column;
 `;
 
+//chidren 컴포넌트들을 화면에 보이도록 하기
+
 function ToDoTemplate({ children }) {
   return (
     <ToDoTemplateBlock> 

@@ -45,6 +45,8 @@ const CircleButton = styled.button`
     `}
 `;
 
+//line18: 요소 배치 수직 순서 결정
+
 const InsertFormPositioner = styled.div`
   width: 100%;
   bottom: 0;

@@ -24,7 +24,7 @@ const initialTodos = [
   ];
   
 
-  //다음 상태를 리턴해주는 함수 => CREATE, TOGGLE, REMOVE
+  //next state를 리턴해주는 함수 => CREATE, TOGGLE, REMOVE
   function todoReducer(state, action) {
     switch (action.type) {
         case 'CREATE':
@@ -45,7 +45,7 @@ const initialTodos = [
   const TodoDispatchContext = createContext(null);
   const TodoNextIdContext = createContext(null);
 
-  //context API provider사용
+  //context API provider사용할 수 있는 컴포넌트
   export function ToDoProvider({children}){
       const [state, dispatch] = useReducer(todoReducer, initialTodos);
       const nextId = useRef(5);
@@ -60,15 +60,27 @@ const initialTodos = [
       );
   }
 
-  //custom HOOK
+  //custom HOOK : 다른 컴포넌트에서 쉽게 불러와서 사용할 수 있도록 하기
   export function useTodoState() {
+    const context = useContext(TodoStateContext);
+    if(!context) {
+      throw new Error('Cannot find TodoStateContext')
+    }
       return useContext(TodoStateContext);
   }
 
   export function useTodoDispatch() {
+    const context = useContext(TodoDispatchContext);
+    if(!context) {
+      throw new Error('Cannot find TodoDispatchContext')
+    }
       return useContext(TodoDispatchContext);
   }
 
   export function useTodoNextId() {
+    const context = useContext(TodoNextIdContext);
+    if(!context) {
+      throw new Error('Cannot find TodoNextIdContext')
+    }
     return useContext(TodoNextIdContext);
   }

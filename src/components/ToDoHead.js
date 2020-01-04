@@ -36,7 +36,7 @@ function ToDoHead() {
   const dayName = today.toLocaleString('ko-KR', { weekday: 'long' });
 
   const todos = useTodoState();
-  const undoneTasks = todos.filter(todo => !todo.done);
+  const undoneTasks = todos.filter(todo => todo.done === false);
 
   return (
     <ToDoHeadBlock>

@@ -3,6 +3,8 @@ import styled, { css } from 'styled-components';
 import { MdDone, MdDelete } from 'react-icons/md';
 import { useTodoDispatch } from '../ToDoContext';
 
+
+
 const CheckCircle = styled.div`
   width: 32px;
   height: 32px;
@@ -22,6 +24,9 @@ const CheckCircle = styled.div`
     `}
 `;
 
+//line19 : css 여러줄 내부에서 사용할땐 css import하고 사용
+//line 54 : hover일 때 remove컴포넌트 불투명도 1로 만들어주는 코드
+
 const Text = styled.div`
   flex: 1;
   font-size: 21px;
@@ -30,8 +35,8 @@ const Text = styled.div`
     props.done &&
     css`
       color: #ced4da;
-      text-decoration:line-through
-    `}
+      text-decoration:line-through;
+    `};
 `;
 
 const Remove = styled.div`
@@ -44,7 +49,7 @@ const Remove = styled.div`
   cursor: pointer;
   &:hover {
     color: #ff6b6b;
-  }
+  };
 `;
 
 const ToDoItemBlock = styled.div`
@@ -58,8 +63,6 @@ const ToDoItemBlock = styled.div`
     }
   }
 `;
-//line 54 : hover일 때 remove컴포넌트 불투명도 1로 만들어주는 코드
-
 
 function ToDoItem({ id, done, text }) {
   const dispatch = useTodoDispatch();
