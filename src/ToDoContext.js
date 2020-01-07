@@ -26,6 +26,7 @@ const initialTodos = [
 
   //next state를 리턴해주는 함수 => CREATE, TOGGLE, REMOVE
   function todoReducer(state, action) {
+
     switch (action.type) {
         case 'CREATE':
           return state.concat(action.todo);
@@ -40,6 +41,7 @@ const initialTodos = [
       }
   }
 
+
   //context API
   const TodoStateContext = createContext(null);
   const TodoDispatchContext = createContext(null);
@@ -49,6 +51,7 @@ const initialTodos = [
   export function ToDoProvider({children}){
       const [state, dispatch] = useReducer(todoReducer, initialTodos);
       const nextId = useRef(5);
+
       return (
           <TodoStateContext.Provider value={state}>
               <TodoDispatchContext.Provider value={dispatch}>

@@ -4,7 +4,6 @@ import { MdDone, MdDelete } from 'react-icons/md';
 import { useTodoDispatch } from '../ToDoContext';
 
 
-
 const CheckCircle = styled.div`
   width: 32px;
   height: 32px;
@@ -81,6 +80,7 @@ function ToDoItem({ id, done, text }) {
     });
   };
 
+
   return (
     <ToDoItemBlock>
         <CheckCircle onClick={onToggle} done={done}>
@@ -93,5 +93,6 @@ function ToDoItem({ id, done, text }) {
     </ToDoItemBlock>
   );
 }
+
 
 export default React.memo(ToDoItem);

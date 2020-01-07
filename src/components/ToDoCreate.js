@@ -3,6 +3,8 @@ import styled, { css } from 'styled-components';
 import { MdAdd } from 'react-icons/md';
 import { useTodoNextId , useTodoDispatch } from '../ToDoContext';
 
+
+
 const CircleButton = styled.button`
   background: #38d9a9;
   &:hover {
@@ -82,7 +84,7 @@ function ToDoCreate() {
     const [value, setValue] = useState('');
     const dispatch = useTodoDispatch();
     const nextId = useTodoNextId();
-  
+
     const onToggle = () => setOpen(!open);
     const onChange = e => setValue(e.target.value);
     const onSubmit = e => {
@@ -99,7 +101,6 @@ function ToDoCreate() {
       setOpen(false);
       setValue('');
     };
-
     return (
         <>
         {open && (
@@ -120,4 +121,5 @@ function ToDoCreate() {
         </>
     );
 }
+
 export default React.memo(ToDoCreate);

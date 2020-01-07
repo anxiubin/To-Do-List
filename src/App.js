@@ -4,7 +4,7 @@ import ToDoTemplate from './components/ToDoTemplate'
 import ToDoHead from './components/ToDoHead';
 import ToDoList from './components/ToDoList';
 import ToDoCreate from './components/ToDoCreate';
-import { ToDoProvider } from './ToDoContext';
+import { ToDoProvider} from './ToDoContext';
 
 
 const GlobalStyle = createGlobalStyle`
@@ -13,7 +13,9 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
+
 function App() {
+
   return (
     <ToDoProvider>
       <GlobalStyle />
