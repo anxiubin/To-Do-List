@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import styled from 'styled-components';
 import ToDoItem from './ToDoItem';
 import { useTodoState } from '../ToDoContext';
@@ -17,11 +17,11 @@ function ToDoList() {
   const todos = useTodoState();
 
   useEffect(() => {localStorage.setItem("todoLS", JSON.stringify(todos))
-  },[]);
+  },[todos]);
 
   useEffect(() => {
       localStorage.todoLS = JSON.stringify(todos);
-  }, [todos]);
+  },[todos]);
 
   return (
     <ToDoListBlock>
