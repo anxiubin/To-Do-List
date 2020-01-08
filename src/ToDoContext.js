@@ -1,27 +1,29 @@
 import React, { useReducer , createContext , useContext , useRef } from 'react';
 
-const initialTodos = [
-    {
-      id: 1,
-      text: '운동하기',
-      done: true
-    },
-    {
-      id: 2,
-      text: '뉴스 읽기',
-      done: true
-    },
-    { 
-      id: 3, 
-      text: '저녁 약속 가기', 
-      done: false 
-    },
-    { 
-      id: 4, 
-      text: '리액트 공부하기', 
-      done: false 
-    }
-  ];
+//로컬스토리지에 값이 있으면 get으로 가져오고, 없으면 디폴트값으로 리스트 넣어주기
+const initialTodos = JSON.parse(localStorage.getItem('todoLS')) || 
+    [
+      {
+        id: 1,
+        text: '운동하기',
+        done: true
+      },
+      {
+        id: 2,
+        text: '뉴스 읽기',
+        done: true
+      },
+      {
+        id: 3,
+        text: '저녁 약속 가기',
+        done: false
+      },
+      {
+        id: 4,
+        text: '리액트 공부하기',
+        done: false
+      }
+    ];
   
 
   //next state를 리턴해주는 함수 => CREATE, TOGGLE, REMOVE

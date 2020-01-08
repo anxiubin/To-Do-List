@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
 import ToDoItem from './ToDoItem';
 import { useTodoState } from '../ToDoContext';
@@ -22,10 +22,6 @@ function ToDoList() {
   useEffect(() => {
       localStorage.todoLS = JSON.stringify(todos);
   }, [todos]);
-
-    
-
-  console.log(todos);
 
   return (
     <ToDoListBlock>
