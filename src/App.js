@@ -29,6 +29,6 @@ function App() {
 }
 
 //context API 사용하기위해 ToDoProvider로 감싸준다
-//chidren 최대한 안쓰고 각 컴포넌트로 관리 
+//chidren 최대한 안쓰고 각 컴포넌트로 관리하는 것이 좋다
 
 export default App;

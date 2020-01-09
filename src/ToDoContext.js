@@ -38,10 +38,6 @@ const initialTodos = JSON.parse(localStorage.getItem('todoLS')) ||
           );
         case 'REMOVE':
           return state.filter(todo => todo.id !== action.id);
-        case 'FILTERTODO':
-          return state.filter(todo => todo.done === false);
-        case 'FILTERDONE':
-          return state.filter(todo => todo.done === true);
         default:
           throw new Error(`Unhandled action type: ${action.type}`);
       }
@@ -52,17 +48,22 @@ const initialTodos = JSON.parse(localStorage.getItem('todoLS')) ||
   const TodoStateContext = createContext(null);
   const TodoDispatchContext = createContext(null);
   const TodoNextIdContext = createContext(null);
+  const filteredList = createContext(null);
 
   //context API provider사용할 수 있는 컴포넌트
   export function ToDoProvider({children}){
       const [state, dispatch] = useReducer(todoReducer, initialTodos);
       const nextId = useRef(5);
+      const filtered = useRef('FILTERLIST');
+
 
       return (
           <TodoStateContext.Provider value={state}>
               <TodoDispatchContext.Provider value={dispatch}>
                   <TodoNextIdContext.Provider value={nextId}>
-                  {children}
+                    <filteredList.Provider value={filtered}> 
+                      {children}
+                    </filteredList.Provider>
                   </TodoNextIdContext.Provider>
               </TodoDispatchContext.Provider>
           </TodoStateContext.Provider>
@@ -93,3 +94,13 @@ const initialTodos = JSON.parse(localStorage.getItem('todoLS')) ||
     }
     return useContext(TodoNextIdContext);
   }
+
+  export function useFiltered() {
+    const context = useContext(filteredList);
+    if(!context) {
+      throw new Error('Cannot find filteringContext')
+    }
+    return useContext(filteredList);
+  }
+
+

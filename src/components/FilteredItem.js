@@ -62,7 +62,7 @@ const ToDoItemBlock = styled.div`
   }
 `;
 
-function ToDoItem({ id, done, text }) {
+function FilteredItem({ id, done, text }) {
   const dispatch = useTodoDispatch();
 
   const onToggle = () => {
@@ -94,4 +94,4 @@ function ToDoItem({ id, done, text }) {
 }
 
 
-export default React.memo(ToDoItem);
+export default React.memo(FilteredItem);
