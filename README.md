@@ -6,11 +6,11 @@ made with React in 2019
 2. Date
 3. Context API
 4. Styled-components
+5. Filter List
 
 ## Screen
-<img src="https://user-images.githubusercontent.com/51507260/71533867-8ee05880-293e-11ea-8c39-61086ccb988d.png" alt="todolist">
+<img src="https://user-images.githubusercontent.com/51507260/72434511-28cd4f80-37df-11ea-809b-ab773d5c4ee4.png" alt="todolist">
 
 ## Languages & Library
-- JSX
 - JavaScript
 - React
