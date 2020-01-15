@@ -94,7 +94,8 @@ function ToDoCreate() {
         todo: {
           id: nextId.current,
           text: value,
-          done: false
+          done: false,
+          filterType: false
         }
       });
       nextId.current += 1;

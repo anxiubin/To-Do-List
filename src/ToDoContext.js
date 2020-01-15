@@ -6,22 +6,26 @@ const initialTodos = JSON.parse(localStorage.getItem('todoLS')) ||
       {
         id: 1,
         text: '운동하기',
-        done: true
+        done: true,
+        filterType: false
       },
       {
         id: 2,
         text: '뉴스 읽기',
-        done: true
+        done: true,
+        filterType: false
       },
       {
         id: 3,
         text: '저녁 약속 가기',
-        done: false
+        done: false,
+        filterType: false
       },
       {
         id: 4,
         text: '리액트 공부하기',
-        done: false
+        done: false,
+        filterType: false
       }
     ];
   
@@ -38,6 +42,15 @@ const initialTodos = JSON.parse(localStorage.getItem('todoLS')) ||
           );
         case 'REMOVE':
           return state.filter(todo => todo.id !== action.id);
+        case 'ORIGIN':
+          return state.map(todo=>
+            todo.filterType === true ? {...todo, filterType: false} : todo);
+        case 'UNDONE':
+            return state.map(todo=>
+              todo.done === false ? {...todo, filterType: true} : {...todo, filterType: false});
+        case 'DONE':
+            return state.map(todo=>
+              todo.done === true ? {...todo, filterType: true} : {...todo, filterType: false});
         default:
           throw new Error(`Unhandled action type: ${action.type}`);
       }
